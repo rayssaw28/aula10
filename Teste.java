@@ -16,6 +16,7 @@
  */
 
 package exAula10;
+import java.util.*;
 
 /**
  *
@@ -26,19 +27,68 @@ package exAula10;
 public class Teste {
 
    public static void main (String[] args) {
-       Quadrado quadrado = new Quadrado();
-       Triangulo triangulo = new Triangulo ("Azul", 5, 12);
-       Circulo circulo = new Circulo ("Verde", 10.2);
-       Retangulo retangulo = new Retangulo ("Rosa", 32, 12);
-       
-       quadrado.setCor("Roxo");
-       quadrado.setLado1(4);
-       
-       System.out.println(quadrado);
-       System.out.println(triangulo);
-       System.out.println(circulo);
-       System.out.println(retangulo);
+        Scanner scanner = new Scanner(System.in);
+        
+       while (true) {
+           System.out.println();
+           System.out.println("Escolha uma figura:");
+           System.out.println("1 - Quadrado");
+           System.out.println("2 - Triângulo");
+           System.out.println("3 - Círculo");
+           System.out.println("4 - Retângulo");
+           System.out.println("0 - Sair");
+
+           int opcao = scanner.nextInt();
+            
+   switch (opcao) {
+               case 0:
+                   return;
+               case 1:
+                   System.out.println("Digite a cor do quadrado:");
+                   String corQ = scanner.next();
+                   scanner.nextLine();
+                   System.out.println("Digite o lado do quadrado:");
+                   double ladoQ = scanner.nextDouble();
+                   Quadrado quadrado = new Quadrado();
+                   quadrado.setCor(corQ);
+                   quadrado.setLado1(ladoQ);
+                   System.out.println("Figura criada: " + quadrado);
+                   break;
+               case 2:
+                   System.out.println("Digite a cor do triângulo:");
+                   String corT = scanner.next();
+                   scanner.nextLine();
+                   System.out.println("Digite a base do triângulo:");
+                   double baseT = scanner.nextDouble();
+                   System.out.println("Digite a altura do triângulo:");
+                   double alturaT = scanner.nextDouble();
+                   Triangulo triangulo = new Triangulo(corT, baseT, alturaT);
+                   System.out.println("Figura criada: " + triangulo);
+                   break;
+               case 3:
+                   System.out.println("Digite a cor do círculo:");
+                   String corC = scanner.next();
+                   scanner.nextLine();
+                   System.out.println("Digite o raio do círculo:");
+                   double raioC = scanner.nextDouble();
+                   Circulo circulo = new Circulo(corC, raioC);
+                   System.out.println("Figura criada: " + circulo);
+                   break;
+               case 4:
+                   System.out.println("Digite a cor do retângulo:");
+                   String corR = scanner.next();
+                   scanner.nextLine();
+                   System.out.println("Digite o lado 1 do retângulo:");
+                   double lado1R = scanner.nextDouble();
+                   System.out.println("Digite o lado 2 do retângulo:");
+                   double lado2R = scanner.nextDouble();
+                   Retangulo retangulo = new Retangulo(corR, lado1R, lado2R);
+                   System.out.println("Figura criada: " + retangulo);
+                   break;
+               default:
+                   System.out.println("Opção inválida.");
+                   continue;
+           }
+       }
    }
-    
-    
 }
